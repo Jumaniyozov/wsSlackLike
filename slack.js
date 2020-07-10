@@ -21,8 +21,7 @@ io.on('connection',(socket)=>{
         }
     })
     // console.log(nsData)
-    // sned the nsData back to the client. We need to use socket, NOT io, because we want it to 
-    // go to just this client. 
+
     socket.emit('nsList',nsData);
 })
 
@@ -65,8 +64,6 @@ namespaces.forEach((namespace)=>{
             // console.log(fullMsg)
             // Send this message to ALL the sockets that are in the room that THIS socket is in.
             // console.log(nsSocket.rooms)
-            // the user will be in the 2nd room in the object list
-            // this is because the socket ALWAYS joins its own room on connection
             // get the keys
             const roomTitle = Object.keys(nsSocket.rooms)[1];
             const nsRoom = namespace.rooms.find((room)=>{
