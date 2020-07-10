@@ -64,13 +64,11 @@ namespaces.forEach((namespace)=>{
             }
             // console.log(fullMsg)
             // Send this message to ALL the sockets that are in the room that THIS socket is in.
-            // how can we find out what rooms THIS socket is in?
             // console.log(nsSocket.rooms)
             // the user will be in the 2nd room in the object list
             // this is because the socket ALWAYS joins its own room on connection
             // get the keys
             const roomTitle = Object.keys(nsSocket.rooms)[1];
-            // we need to find the Room object for this room
             const nsRoom = namespace.rooms.find((room)=>{
                 return room.roomTitle === roomTitle;
             })
